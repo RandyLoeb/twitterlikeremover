@@ -21,7 +21,23 @@ window.setInterval(function () {
   for (i = 0; i <= tempList2.length; i++) {
     try {
       if (tempList2[i].innerHTML.includes("Replying to")) {
-        tempList2[i].closest("article").style.display = "none";
+        var targetArticle = tempList2[i].closest("article");
+        var articleOk = false;
+        var targetArticleDivs = targetArticle.getElementsByTagName("div");
+
+        for (j = 0; j <= targetArticleDivs.length; j++) {
+          try {
+            if (
+              targetArticleDivs[j].hasAttribute("role") &&
+              targetArticleDivs[j].getAttribute("role") == "blockquote"
+            ) {
+              articleOk = true;
+            }
+          } catch {}
+        }
+        if (!articleOk) {
+          targetArticle.style.display = "none";
+        }
       }
     } catch {}
   }
