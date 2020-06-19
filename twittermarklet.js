@@ -16,6 +16,13 @@ window.setInterval(function () {
           "none";
       }
     } catch {}
+
+    try {
+      const regex = /and \d+ others follow/g;
+      if (tempList1[i].innerHTML.match(regex)) {
+        tempList1[i].closest("article").style.display = "none";
+      }
+    } catch {}
   }
 
   for (i = 0; i <= tempList2.length; i++) {
