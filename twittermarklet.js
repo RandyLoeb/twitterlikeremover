@@ -23,6 +23,12 @@ window.setInterval(function () {
         tempList1[i].closest("article").style.display = "none";
       }
     } catch {}
+
+    try {
+      if (tempList1[i].innerHTML.includes("follows")) {
+        tempList1[i].closest("article").style.display = "none";
+      }
+    } catch {}
   }
 
   for (i = 0; i <= tempList2.length; i++) {
