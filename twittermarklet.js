@@ -9,6 +9,12 @@ window.setInterval(function () {
     } catch {}
 
     try {
+      if (tempList1[i].innerHTML.includes("Retweeted")) {
+        tempList1[i].closest("article").style.display = "none";
+      }
+    } catch {}
+
+    try {
       if (tempList1[i].innerHTML.includes("received a reply")) {
         tempList1[i].closest(
           "article"
